@@ -1,0 +1,92 @@
+:root {
+    --clr-bg: #F9FAF6;
+    --clr-surface: #FFFFFF;
+    --clr-surface-2: #F0F2EA;
+    --clr-texte: #20231F;
+    --clr-texte-muet: #646960;
+    --clr-accent: #C6F36B;
+    --clr-border: #E6E8E0;
+    --clr-focus: #20231F;
+    --clr-danger: #B3261E;
+    --clr-overlay: rgba(20, 14, 18, .55);
+
+    --radius-card: 12px;
+    --radius-panel: 16px;
+    --radius-modal: 24px;
+    --radius-button: 999px;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+
+    --font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --text-display: 38px;
+    --text-h1: 36px;
+    --text-h2: 30px;
+    --text-h3: 22px;
+    --text-body: 16px;
+    --text-small: 14px;
+    --text-caption: 12px;
+
+    --leading-tight: 1.02;
+    --leading-snug: 1.2;
+    --leading-body: 1.6;
+
+    --transition-fast: 180ms ease;
+    --transition-slow: 500ms ease-out;
+    --ease-out: cubic-bezier(.22, 1, .36, 1);
+
+    --shadow-sm: 0 1px 2px rgba(32, 35, 31, .08), 0 4px 12px rgba(32, 35, 31, .06);
+    --shadow-md: 0 16px 40px rgba(32, 35, 31, .16);
+    --shadow-lg: 0 32px 80px rgba(0, 0, 0, .35);
+
+    --z-header: 10;
+    --z-popover: 20;
+    --z-scrim: 40;
+    --z-modal: 50;
+    --z-toast: 60;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-bg: #111310;
+        --clr-surface: #1A1D18;
+        --clr-surface-2: #23271F;
+        --clr-texte: #F1F3EC;
+        --clr-texte-muet: #A3A89B;
+        --clr-border: #2C3128;
+        --clr-focus: #C6F36B;
+        --clr-danger: #FF8480;
+        --clr-overlay: rgba(0, 0, 0, .65);
+    }
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media (min-width: 600px) {
+    :root {
+        --text-display: 56px;
+        --text-h1: 40px;
+        --text-h2: 36px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --text-display: 72px;
+        --text-h1: 52px;
+    }
+}

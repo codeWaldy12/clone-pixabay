@@ -1,0 +1,31 @@
+@import url(variables.css);
+@import url(components/navbar.css);
+@import url(components/cartes.css);
+@import url(components/buttons.css);
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+}
+
+h1 {
+    font-size: var(--text-h1);
+    line-height: var(--leading-tight);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+h2 {
+    font-size: var(--text-h2);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+}
+
+h3 {
+    font-size: var(--text-h3);
+    line-height: var(--leading-snug);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
