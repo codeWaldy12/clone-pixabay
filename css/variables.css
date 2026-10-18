@@ -4,7 +4,7 @@
     --clr-surface-2: #F0F2EA;
     --clr-texte: #20231F;
     --clr-texte-muet: #646960;
-    --clr-accent: #C6F36B;
+    --clr-accent: #49841c;
     --clr-border: #E6E8E0;
     --clr-focus: #20231F;
     --clr-danger: #B3261E;
@@ -62,18 +62,19 @@
         --clr-texte: #F1F3EC;
         --clr-texte-muet: #A3A89B;
         --clr-border: #2C3128;
-        --clr-focus: #C6F36B;
+        --clr-accent: #046510;
+        --clr-focus: #0cf427;
         --clr-danger: #FF8480;
         --clr-overlay: rgba(0, 0, 0, .65);
     }
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../assets/fonts/InterVariable.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Inter";
+    src: url("../assets/fonts/InterVariable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 @media (min-width: 600px) {
