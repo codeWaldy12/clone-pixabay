@@ -1,0 +1,18 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-header);
+    background-color: var(--clr-surface);
+    width: 100%;
+    border-top: 1px solid var(--clr-border);
+    padding: var(--space-3) 0;
+}
+
+.navbar-link {
+    padding-left: 0;
+}
+
+.navbar-link a img {
+    margin: 0 auto;
+}

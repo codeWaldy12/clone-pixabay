@@ -3,82 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Trouver des photos et vidéos de hautes résolutions.">
+    <meta name="description" content="Trouvez des photos et vidéos en haute résolution.">
+    <meta name="google" content="notranslate">
     <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/main.css">
     <title>Accueil - Visuora</title>
 </head>
 <body>
 
-    <header>
-        <a href="index.html">Visuora</a>
+    <header class="flex-around">
+        <a href="index.html" class="flex-center-y logo" title="Accueil">
+            <img src="assets/icons/eye.svg" class="icone" alt="icône d'un oeil">
+            Visuora
+        </a>
         <nav class="navbar">
-            <ul>
+            <ul class="flex-around navbar-link">
                 <li>
-                    <a href="index.html" aria-current="page" title="Accueil">Accueil</a>
+                    <a href="index.html" aria-current="page" title="Accueil">
+                        <img src="assets/icons/house.svg" class="icone" alt="icône d'une maison">    
+                        Accueil
+                    </a>
                 </li>
                 <li>
-                    <a href="explorer.html" title="Explorer">Explorer</a>
+                    <a href="explorer.html" title="Explorer">
+                        <img src="assets/icons/compass.svg" class="icone" alt="icône d'une boussole">
+                        Explorer
+                    </a>
                 </li>
                 <li>
-                    <a href="favoris.html" title="Favoris">Favoris</a>
+                    <a href="favoris.html" title="Favoris">
+                        <img src="assets/icons/heart.svg" class="icone" alt="icône d'un coeur">
+                        Favoris
+                    </a>
                 </li>
             </ul>
         </nav>
-        <button type="button"></button>
+
+        <!-- changement de theme  -->
+        <div class="toggle-switch">
+            <label class="switch-label">
+                <input type="checkbox" class="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>  
     </header>
 
     <main>
         <!-- hero section  -->
-        <section class="hero">
-            <h1>Trouvez l'image qui raconte votre idée.</h1>
-            <p>Photos, illustrations, vecteurs et vidéos libres de droits.</p>
-
-            <!-- champ de recherche des médias  -->
-            <div class="rechercher">
-                <label for="rechercher-media"></label>
-                <input type="text" name="rechercher_media" id="rechercher-media">
+        <section class="hero" aria-labelledby="titre-hero">
+            <div class="m-90 flex-center">
+                <div class="hero-card hero-card-left"></div>
+                <div class="hero-title">
+                    <h1 id="titre-hero">Trouvez l'image qui raconte votre idée.</h1>
+                    <p>Photos, illustrations, vecteurs et vidéos libres de droits.</p>
+                </div>
+                <div class="hero-card hero-card-right"></div>
             </div>
 
-            <div class="container-btn">
-                <button type="button">nature</button>
-                <button type="button">montagne</button>
-                <button type="button">bureau</button>
-                <button type="button">café</button>
+            <!-- champ de recherche des médias  -->
+            <div class="rechercher m-90">
+                <form class="flex-center-y" role="search" action="explore.html">
+                    <div class="hero-card hero-card-left"></div>
+                    <div class="search-bar">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                                ></path>
+                            </g>
+                        </svg>
+                        <input type="search" id="input-search" name="q" placeholder="Rechercher un média…" aria-label="Rechercher des médias">
+                    </div>
+                    <button type="submit" class="btn btn-search">Rechercher</button>
+                    <div class="hero-card hero-card-right"></div>
+                </form>
+            </div>
+
+            <!-- bouttons de filtres  -->
+            <div class="container-btn m-90">
+                <span class="tendance">Tendances</span>
+                <button type="button" class="btn">nature</button>
+                <button type="button" class="btn">montagne</button>
+                <button type="button" class="btn">bureau</button>
+                <button type="button" class="btn">café</button>
             </div>
         </section>
 
         <!-- section exploration  -->
-        <section class="exploration">
-            <h2>Explorer</h2>
-            <p>Le choix des éditeurs, sans compte ni inscription.</p>
-
-            <div class="container-btn">
-                <button type="button">Tout</button>
-                <button type="button">Nature</button>
-                <button type="button">Voyage</button>
-                <button type="button">Architecture</button>
+        <section class="exploration" aria-labelledby="titre-exploration">
+            <div class="m-90">
+                <h2 id="titre-exploration">Explorer</h2>
+                <p>Le choix des éditeurs, sans compte ni inscription.</p>
             </div>
 
-            <div class="exploration__carte"></div>
-            <a href="explorer.html">Explorer toute la catégorie</a>
+            <div class="container-btn m-90">
+                <button type="button" class="btn actif">Tout</button>
+                <button type="button" class="btn">Nature</button>
+                <button type="button" class="btn">Voyage</button>
+                <button type="button" class="btn">Architecture</button>
+            </div>
+
+            <!-- gallerie photo  -->
+            <div class="exploration-carte m-90 grid-cols-2">
+                <div class="gallery">
+                    <div class="gallery-image">
+                    </div>
+                </div>
+                <a href="explorer.html" class="btn btn-search" title="Rechercher">Explorer toute la catégorie</a>
+            </div>
         </section>
 
         <!-- section recherce par catégorie  -->
-        <section class="categorie">
-            <h2>Par catégorie</h2>
-            <div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+        <section class="categorie" aria-labelledby="titre-categorie">
+            <div class="m-90">
+                <h2 id="titre-categorie" class="text-center">Par catégorie</h2>
+            </div>
+            <div class="grid-cols-2 categorie-carte">
+                <!-- 1ere carte  -->
+                <article class="card">
+                    <div class="card-image">
+                        <a class="card-link" href="explorer.html" aria-label="Voir le détail : paysage vert">
+                            <figure class="card-figure">
+                                <img src="assets/img/nature.webp" width="165" height="130" alt="bord de montagne avec un océan tout bas" loading="lazy">
+                                <figcaption>Nature</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 2eme carte  -->
+                <article class="card">
+                    <div class="card-image">
+                        <a class="card-link" href="explorer.html" aria-label="Voir le détail : paysage de voyage">
+                            <figure class="card-figure">
+                                <img src="assets/img/voyage.webp" width="165" height="130" alt="voyageuse dans un désert" loading="lazy">
+                                <figcaption>Voyages</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 3eme carte  -->
+                <article class="card">
+                    <div class="card-image">
+                        <a class="card-link" href="explorer.html" aria-label="Voir le détail : paysage architectural">
+                            <figure class="card-figure">
+                                <img src="assets/img/architecture.webp" width="165" height="130" alt="rome" loading="lazy">
+                                <figcaption>Architecture</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 4eme carte  -->
+                <article class="card">
+                    <div class="card-image">
+                        <a class="card-link" href="explorer.html" aria-label="Voir le détail : alimentation">
+                            <figure class="card-figure">
+                                <img src="assets/img/alimentation.webp" width="165" height="130" alt="bétrave" loading="lazy">
+                                <figcaption>Alimentation</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 5eme carte  -->
+                <article class="card">
+                    <div class="card-image">
+                        <a class="card-link" href="explorer.html" aria-label="Voir le détail : alimentation">
+                            <figure class="card-figure">
+                                <img src="assets/img/animaux.webp" width="165" height="130" alt="deux zébres" loading="lazy">
+                                <figcaption>Animaux</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 6eme carte  -->
+                <article class="card">
+                    <div class="card-image">
+                        <a class="card-link" href="explorer.html" aria-label="Voir le détail : alimentation">
+                            <figure class="card-figure">
+                                <img src="assets/img/technologie.webp" width="165" height="130" alt="lignes de code informatique en php" loading="lazy">
+                                <figcaption>Technologie</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>
-            <small>&copy;Copyright 2026 Visuora - Tous droits réservés</small>
+        <p class="text-center">
+            &copy;Copyright 2026 Visuora - Tous droits réservés
         </p>
     </footer>
 </body>
