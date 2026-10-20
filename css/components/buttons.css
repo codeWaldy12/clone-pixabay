@@ -133,7 +133,10 @@
 }
 
 .btn-search {
-  color: var(--clr-texte);
   background-color: var(--clr-accent);
   grid-column: 1 / -1;
+}
+
+#btn-clean {
+  color: var(--clr-danger);
 }

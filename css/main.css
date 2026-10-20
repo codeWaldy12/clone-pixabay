@@ -180,7 +180,7 @@ input:focus {
 
 .actif {
     background-color: var(--clr-accent);
-    color: var(--clr-surface-2);
+    color: var(--clr-texte);
 }
 
 .tendance {
