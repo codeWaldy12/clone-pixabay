@@ -12,10 +12,22 @@
 <body>
 
     <header class="flex-around">
-        <a href="index.html" class="flex-center-y logo" title="Accueil">
-            <img src="assets/icons/eye.svg" class="icone" alt="icône d'un oeil">
-            Visuora
-        </a>
+
+        <div class="flex-center hamburger-container">
+            <label class="burger" for="burger">
+                <input type="checkbox" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <a href="index.html" class="flex-center-y logo" title="Accueil">
+                <img src="assets/icons/eye.svg" class="icone" alt="icône d'un oeil">
+                Visuora
+            </a>
+        </div>
+
+        <label for="burger" class="menu-overlay" aria-label="Fermer le menu"></label>
+
         <nav class="navbar">
             <ul class="flex-around navbar-link">
                 <li>
