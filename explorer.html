@@ -9,6 +9,103 @@
     <title>Explorer - Visuora</title>
 </head>
 <body>
-    
+    <header class="flex-around">
+
+        <div class="flex-center hamburger-container">
+            <label class="burger" for="burger">
+                <input type="checkbox" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <a href="index.html" class="flex-center-y logo" title="Accueil">
+                <img src="assets/icons/eye.svg" class="icone" alt="icône d'un oeil">
+                Visuora
+            </a>
+        </div>
+
+        <label for="burger" class="menu-overlay" aria-label="Fermer le menu"></label>
+
+        <nav class="navbar">
+            <ul class="flex-around navbar-link">
+                <li>
+                    <a href="index.html" title="Accueil">
+                        <img src="assets/icons/house.svg" class="icone" alt="icône d'une maison">    
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="explorer.html" aria-current="page" title="Explorer">
+                        <img src="assets/icons/compass.svg" class="icone" alt="icône d'une boussole">
+                        Explorer
+                    </a>
+                </li>
+                <li>
+                    <a href="favoris.html" title="Favoris">
+                        <img src="assets/icons/heart.svg" class="icone" alt="icône d'un coeur">
+                        Favoris
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rechercher">
+                <form class="flex-center-y" role="search" action="explore.html">
+                    <div class="search-bar">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                                ></path>
+                            </g>
+                        </svg>
+                        <input type="search" id="input-search" name="q" placeholder="Rechercher un média…" aria-label="Rechercher des médias">
+                    </div>
+                </form>
+            </div>
+
+        <!-- changement de theme  -->
+        <div class="toggle-switch">
+            <label class="switch-label">
+                <input type="checkbox" class="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>  
+    </header>
+    <main>
+        <section aria-labelledby="search-title">
+           <div>    
+                <p class="m-90">Résultats pour :</p>
+                <h2 id="search-title" class="m-90">Montagne</h2>
+           </div>
+           <div class="container-btn m-90 flex-center-y m-90">
+                <button type="button" class="btn actif">Tout</button>
+                <button type="button" class="btn">Photos</button>
+                <button type="button" class="btn">Illustrations</button>
+                <button type="button" class="btn">Vidéos</button>
+            </div>
+        </section>
+        <section class="favoris">
+            <div class="filter-fav m-90 flex-between">
+                <div class="filter-options">
+                    <button class="btn">Filtres</button>
+                    <select name="favoris filtre" id="select-wrapper">
+                        <option value="populaire">Pouplaires</option>
+                        <option value="notes">Mieux notés</option>
+                    </select>
+                    
+                </div>
+                <button type="button" class="btn" id="btn-clean">Tout effacer</button>
+            </div>
+            <div class="gallery">
+                <div class="gallery-image"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="text-center">
+            &copy;Copyright 2026 Visuora - Tous droits réservés
+        </p>
+    </footer>
 </body>
 </html>

@@ -339,6 +339,10 @@ footer {
         margin-left: 0;           
     }
 
+    #select-wrapper {
+        margin-left: var(--space-4);
+    }
+
     footer {
         margin-bottom: 0;
     }

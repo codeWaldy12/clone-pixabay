@@ -7,26 +7,6 @@
     word-wrap: break-word;
 }
 
-/* filtre de selection des favoris ajoutés  */
-#select-wrapper {
-    appearance: none;
-    -webkit-appearance: none;
-    border: none;
-    border-radius: var(--radius-panel);
-    outline: none;
-    background-color: var(--clr-surface);
-    color: var(--clr-texte);
-    font-weight: 400;
-    padding: var(--space-2);
-    cursor: pointer;
-}
-
-#select-wrapper:focus-visible {
-    outline: 2px solid var(--clr-accent);
-    outline-offset: 4px;
-    border-radius: 3px;
-}
-
 .favoris-count {
     font-style: var(--text-caption);
     padding: var(--space-1);
@@ -51,9 +31,6 @@
 }
 
 @media screen and (min-width:1024px) {
-    #select-wrapper {
-        margin-left: var(--space-4);
-    }
 
     .favoris-count {
         padding:  var(--space-4);
