@@ -288,7 +288,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 960px) {
 
     header.flex-around {
         position: sticky;
@@ -317,7 +317,8 @@ footer {
         flex-direction: row;
         justify-content: center; 
         align-items: center;      
-        padding-left: 0;          
+        padding-left: 0;   
+        padding-top: var(--space-2);       
         gap: var(--space-6);     
     }
 
