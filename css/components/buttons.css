@@ -119,6 +119,7 @@
 }
 
 .container-btn {
+  gap: var(--space-1);
   flex-wrap: wrap;
 }
 
