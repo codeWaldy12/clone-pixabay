@@ -4,7 +4,7 @@
 
 .favoris-text {
     width: 75%;
-    word-wrap:break-word ;
+    word-wrap: break-word;
 }
 
 /* filtre de selection des favoris ajoutés  */
@@ -28,7 +28,8 @@
 }
 
 .favoris-count {
-    padding: var(--space-2);
+    font-style: var(--text-caption);
+    padding: var(--space-1);
     border-radius: var(--radius-panel);
 }
 
@@ -38,7 +39,7 @@
     background-color: var(--clr-accent);
     width: 80%;
     padding: var(--space-5);
-    margin-top: var(--space-4);
+    margin: var(--space-9) auto var(--space-5);
 }
 
 .add-favoris p {
@@ -52,6 +53,10 @@
 @media screen and (min-width:1024px) {
     #select-wrapper {
         margin-left: var(--space-4);
+    }
+
+    .favoris-count {
+        padding:  var(--space-4);
     }
 
     .add-favoris {
