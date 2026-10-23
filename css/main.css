@@ -163,14 +163,43 @@ input:focus {
     z-index: 1;
 }
 
+.grid-cols-2 .gallery {
+    grid-column: span 2;
+}
+
 .gallery {
     column-count: 2;
     column-gap: var(--space-3);
 }
 
 .gallery-image {
+    position: relative;
     break-inside: avoid;
-    margin-bottom: 15px;
+    margin-bottom: var(--space-3);
+    cursor: pointer;
+    filter: brightness(1);
+    transition: filter var(--transition-fast);
+}
+
+.gallery-image:focus-within .btn-icone {
+    opacity: 1;
+}
+
+.gallery-image img {
+    width: 100%;
+    aspect-ratio: auto;
+}
+
+.icone-container {
+    position: absolute;
+    bottom: 0;
+    gap: var(--space-2);
+    width: 100%;
+}
+
+.btn-icone svg {
+    width: var(--text-body);
+    height: var(--text-body);
 }
 
 .container-btn {
@@ -191,6 +220,26 @@ input:focus {
 footer {
     padding: var(--space-8);
     margin-bottom: var(--space-8);
+}
+
+/* applique le filtre sur le conteneur de l'image de la galerie et 
+fait apparaitre les boutons like et si l'appareil possede un pointeur pour survoler
+les elements  */
+@media (hover: hover) {
+
+    .btn-icone {
+        opacity: 0;
+    }
+
+    .gallery-image:focus-within .btn-icone,
+    .gallery-image:hover .btn-icone {
+        opacity: 1;
+    }
+
+    .gallery-image:hover,
+    .gallery-image:focus-within {
+        filter: brightness(.6);
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -227,7 +276,7 @@ footer {
         left: var(--space-5);
         z-index: var(--z-popover);
     }
-    
+
     /* fait apparaitre le voile sombre si #burger est checké et que 
     menu-overlay est un oncle de la checkobx */
     .hamburger-container:has(#burger:checked)~.menu-overlay {
@@ -247,7 +296,7 @@ footer {
         z-index: calc(var(--z-popover) - 1);
         background-color: var(--clr-bg);
     }
-    
+
     .hamburger-container:has(#burger:checked)~.navbar {
         transform: translateX(0);
     }
@@ -309,38 +358,47 @@ footer {
         transition: none;
         z-index: auto;
         height: auto;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
 
     .navbar-link {
         display: flex;
         flex-direction: row;
-        justify-content: center; 
-        align-items: center;      
-        padding-left: 0;   
-        padding-top: var(--space-2);       
-        gap: var(--space-6);     
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+        padding-top: var(--space-2);
+        gap: var(--space-6);
     }
 
-    .navbar-link li {        
-        flex-shrink: 0;           
+    .navbar-link li {
+        flex-shrink: 0;
     }
 
     .navbar-link li a {
-        display: inline-flex;     
-        align-items: center;      
-        justify-content: center;  
-        gap: var(--space-3);      
-        white-space: nowrap;      
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-3);
+        white-space: nowrap;
     }
 
     .navbar-link img {
         margin-top: 0;
-        margin-left: 0;           
+        margin-left: 0;
     }
 
     #select-wrapper {
         margin-left: var(--space-4);
+    }
+
+    .gallery {
+        column-count: 4;
+    }
+
+    .btn-icone svg {
+        width: var(--text-h2);
+        height: var(--text-h2);
     }
 
     footer {
