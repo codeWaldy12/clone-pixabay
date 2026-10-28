@@ -96,7 +96,7 @@ createStructure();
 
 const btn = document.querySelectorAll(".btn");
 btn.forEach((btn) =>
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("click", () => {
     const lastBtnActif = document.querySelector("button.actif");
     if(lastBtnActif) {
       lastBtnActif.classList.remove("actif");
