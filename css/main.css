@@ -1,7 +1,6 @@
 @import url('variables.css');
 @import url('utilities/utils.css');
 @import url('components/navbar.css');
-@import url('components/cartes.css');
 @import url('components/buttons.css');
 
 * {
@@ -188,6 +187,14 @@ input:focus {
 .gallery-image img {
     width: 100%;
     aspect-ratio: auto;
+}
+
+.exploration-carte{
+    gap: var(--space-2);
+}
+
+.exploration-carte .btn-search {
+    margin-top: var(--space-6);
 }
 
 .icone-container {
