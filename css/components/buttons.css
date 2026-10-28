@@ -143,10 +143,11 @@
 }
 
 .btn-icone {
+  color: black;
   transition: opacity var(--ease-out);
   appearance: none;
-  color: var(--clr-accent);
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
   border-style: none;
   cursor: pointer;
   padding: var(--space-2);

@@ -245,7 +245,7 @@ les elements  */
 
     .gallery-image:hover,
     .gallery-image:focus-within {
-        filter: brightness(.6);
+        filter: brightness(.75);
     }
 }
 
