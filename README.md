@@ -13,3 +13,4 @@ En cours de développement.
 
 - HTML
 - CSS
+- JAVASCRIPT
