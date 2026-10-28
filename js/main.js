@@ -94,3 +94,13 @@ async function createStructure() {
 
 createStructure();
 
+const btn = document.querySelectorAll(".btn");
+btn.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    const lastBtnActif = document.querySelector("button.actif");
+    if(lastBtnActif) {
+      lastBtnActif.classList.remove("actif");
+    }
+    btn.classList.add("actif");
+  })
+);
