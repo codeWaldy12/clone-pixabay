@@ -55,21 +55,15 @@ async function createStructure() {
     const image = document.createElement("img");
     const iconeContainer = document.createElement("div");
     const likeBtn = document.createElement("button");
-    const favoriteBtn = document.createElement("button");
     const likeSvg = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coeur">
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0"/>
-            </svg>`;
-    const favroriteSvg = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-favoris">
-                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 0 1 2 2v16l-7-3.5L5 21V5a2 2 0 0 1 2-2z"/>
             </svg>`;
 
     galleryImage.classList.add("gallery-image");
     iconeContainer.classList.add("icone-container", "flex-between");
     likeBtn.classList.add("btn-icone");
-    favoriteBtn.classList.add("btn-icone");
 
     likeBtn.innerHTML = likeSvg;
-    favoriteBtn.innerHTML = favroriteSvg;
 
     image.src = data.url;
     image.width = data.width;
@@ -82,25 +76,30 @@ async function createStructure() {
     likeBtn.setAttribute("aria-pressed", "false");
     likeBtn.setAttribute("aria-label", "like");
 
-    favoriteBtn.setAttribute("type", "button");
-    favoriteBtn.setAttribute("aria-pressed", "false");
-    favoriteBtn.setAttribute("aria-label", "favoris");
-
-    galleryImage.append(image, iconeContainer, likeBtn, favoriteBtn);
-    iconeContainer.append(likeBtn, favoriteBtn);
+    galleryImage.append(image, iconeContainer, likeBtn);
+    iconeContainer.append(likeBtn);
     gallery.append(galleryImage);
   });
 }
 
 createStructure();
 
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-icone");
+
+  if (!btn) return;
+
+  const isActive = btn.classList.toggle("fill");
+  btn.setAttribute("aria-pressed", isActive);
+});
+
 const btn = document.querySelectorAll(".btn");
 btn.forEach((btn) =>
   btn.addEventListener("click", () => {
     const lastBtnActif = document.querySelector("button.actif");
-    if(lastBtnActif) {
+    if (lastBtnActif) {
       lastBtnActif.classList.remove("actif");
     }
     btn.classList.add("actif");
-  })
+  }),
 );

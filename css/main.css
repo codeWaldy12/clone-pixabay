@@ -207,6 +207,19 @@ input:focus {
 .btn-icone svg {
     width: var(--text-body);
     height: var(--text-body);
+    pointer-events: none;
+}
+
+.btn-icone path {
+    pointer-events: none;
+}
+
+.btn-icone.fill {
+    color: red;
+}
+
+.btn-icone.fill svg path {
+    fill: currentColor;
 }
 
 .container-btn {

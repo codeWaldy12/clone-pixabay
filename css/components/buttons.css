@@ -143,7 +143,6 @@
 }
 
 .btn-icone {
-  pointer-events: none;
   color: black;
   transition: opacity var(--ease-out);
   appearance: none;
