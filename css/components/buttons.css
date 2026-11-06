@@ -140,6 +140,7 @@
 
 #btn-clean {
   color: var(--clr-danger);
+  margin-bottom: var(--space-3);
 }
 
 .btn-icone {
