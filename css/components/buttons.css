@@ -123,7 +123,7 @@
   flex-wrap: wrap;
 }
 
-.btn {
+.btn, .tendance-btn {
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-button);
   background-color: var(--clr-surface);
