@@ -104,6 +104,8 @@ async function createStructure() {
     
     btn.classList.toggle("fill");
     btn.setAttribute("aria-pressed", media.isFavorite);
+
+    saveStorage("favorites", JSON.stringify(Array.from(favorites)));
   });
 }
 
