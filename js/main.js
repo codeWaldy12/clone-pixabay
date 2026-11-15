@@ -37,20 +37,22 @@ function getTheme(key) {
 
 getTheme("theme");
 
+let medias = null;
+
 async function getDatasPixabay(url) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Erreur HTTP ! : ${response.status}`);
   }
-
-  return await response.json();
+  medias = await response.json();
+  return medias;
 }
 
 async function createStructure() {
-  const results = await getDatasPixabay("../images.json");
+  await getDatasPixabay("../images.json");
   const gallery = document.querySelector(".gallery");
 
-  results.forEach((data) => {
+  medias.forEach((data) => {
     const galleryImage = document.createElement("div");
     const image = document.createElement("img");
     const iconeContainer = document.createElement("div");
@@ -72,6 +74,7 @@ async function createStructure() {
     image.decoding = "async";
     image.alt = data.alt;
 
+    likeBtn.dataset.id = data.id;
     likeBtn.setAttribute("type", "button");
     likeBtn.setAttribute("aria-pressed", "false");
     likeBtn.setAttribute("aria-label", "like");
@@ -80,18 +83,24 @@ async function createStructure() {
     iconeContainer.append(likeBtn);
     gallery.append(galleryImage);
   });
+
+  gallery.addEventListener("click", (e) => {
+    const btn = e.target.closest(".btn-icone");
+    if (!btn) return;
+
+    const id = +btn.dataset.id;
+    const media = medias.find((media) => media.id === id);
+
+    if (!media) return;
+
+    media.isFavorite = !media.isFavorite;
+
+    btn.classList.toggle("fill");
+    btn.setAttribute("aria-pressed", media.isFavorite);
+  });
 }
 
 createStructure();
-
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".btn-icone");
-
-  if (!btn) return;
-
-  const isActive = btn.classList.toggle("fill");
-  btn.setAttribute("aria-pressed", isActive);
-});
 
 const btn = document.querySelectorAll(".btn");
 btn.forEach((btn) =>
