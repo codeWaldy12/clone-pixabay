@@ -50,10 +50,8 @@ async function getDatasPixabay(url) {
 
 const gallery = document.querySelector(".gallery");
 
-async function createStructure() {
-  await getDatasPixabay("../images.json");
-
-  medias.forEach((data) => {
+function createCard(media) {
+  media.forEach((data) => {
     const galleryImage = document.createElement("div");
     const image = document.createElement("img");
     const iconeContainer = document.createElement("div");
@@ -84,7 +82,12 @@ async function createStructure() {
     iconeContainer.append(likeBtn);
     gallery.append(galleryImage);
   });
+}
 
+async function createStructure() {
+  await getDatasPixabay("../images.json");
+  createCard(medias);
+  
   const favorites = new Set();
 
   gallery.addEventListener("click", (e) => {
