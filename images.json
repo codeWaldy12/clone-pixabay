@@ -30,7 +30,7 @@
         "author": "Lucas Bernard",
         "category": "architecture",
         "likes": 216,
-        "isFavorite": true
+        "isFavorite": false
     },
     {
         "id": 4,
@@ -52,7 +52,7 @@
         "author": "Nathan Moreau",
         "category": "nature",
         "likes": 342,
-        "isFavorite": true
+        "isFavorite": false
     },
     {
         "id": 6,

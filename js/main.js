@@ -48,9 +48,10 @@ async function getDatasPixabay(url) {
   return medias;
 }
 
+const gallery = document.querySelector(".gallery");
+
 async function createStructure() {
   await getDatasPixabay("../images.json");
-  const gallery = document.querySelector(".gallery");
 
   medias.forEach((data) => {
     const galleryImage = document.createElement("div");
@@ -84,17 +85,20 @@ async function createStructure() {
     gallery.append(galleryImage);
   });
 
+  const favorites = new Set();
+
   gallery.addEventListener("click", (e) => {
     const btn = e.target.closest(".btn-icone");
     if (!btn) return;
 
     const id = +btn.dataset.id;
     const media = medias.find((media) => media.id === id);
-
+    
     if (!media) return;
-
+    
     media.isFavorite = !media.isFavorite;
-
+    media.isFavorite ? favorites.add(media.id) : favorites.delete(media.id);
+    
     btn.classList.toggle("fill");
     btn.setAttribute("aria-pressed", media.isFavorite);
   });
