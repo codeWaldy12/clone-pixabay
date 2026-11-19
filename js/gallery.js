@@ -119,8 +119,6 @@ export async function createStructure() {
   createCard(medias);
 }
 
-createStructure();
-
 const btn = document.querySelectorAll(".btn");
 btn.forEach((btn) =>
   btn.addEventListener("click", () => {
