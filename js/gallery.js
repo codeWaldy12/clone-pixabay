@@ -1,25 +1,29 @@
 const checkThemeInput = document.querySelector(".checkbox");
-const elmntHtml = document.documentElement;
+const elementHtml = document.documentElement;
 
-function saveStorage(key, value) {
+export function saveStorage(key, value) {
   localStorage.setItem(key, value);
 }
 
+export function getStorage(key) {
+  return localStorage.getItem(key);
+}
+
 checkThemeInput.addEventListener("change", () => {
-  elmntHtml.setAttribute(
+  elementHtml.setAttribute(
     "data-theme",
     checkThemeInput.checked ? "dark" : "light",
   );
-  saveStorage("theme", elmntHtml.dataset.theme);
+  saveStorage("theme", elementHtml.dataset.theme);
 });
 
 function themePreference() {
   const preference = window.matchMedia("(prefers-color-scheme: dark)");
   if (preference.matches) {
-    elmntHtml.dataset.theme = "dark";
+    elementHtml.dataset.theme = "dark";
     checkThemeInput.checked = true;
   } else {
-    elmntHtml.dataset.theme = "light";
+    elementHtml.dataset.theme = "light";
     checkThemeInput.checked = false;
   }
 }
@@ -28,7 +32,7 @@ function getTheme(key) {
   const SavedlastTheme = localStorage.getItem(key);
   if (SavedlastTheme !== null) {
     const themeValue = SavedlastTheme;
-    elmntHtml.dataset.theme = themeValue;
+    elementHtml.dataset.theme = themeValue;
     checkThemeInput.checked = themeValue === "dark";
   } else {
     themePreference();
@@ -39,7 +43,7 @@ getTheme("theme");
 
 let medias = null;
 
-async function getDatasPixabay(url) {
+export async function getDatasPixabay(url) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Erreur HTTP ! : ${response.status}`);
@@ -50,7 +54,7 @@ async function getDatasPixabay(url) {
 
 const gallery = document.querySelector(".gallery");
 
-function createCard(media) {
+export function createCard(media) {
   media.forEach((data) => {
     const galleryImage = document.createElement("div");
     const image = document.createElement("img");
@@ -75,7 +79,8 @@ function createCard(media) {
 
     likeBtn.dataset.id = data.id;
     likeBtn.setAttribute("type", "button");
-    likeBtn.setAttribute("aria-pressed", "false");
+    likeBtn.classList.toggle("fill", data.isFavorite);
+    likeBtn.setAttribute("aria-pressed", data.isFavorite);
     likeBtn.setAttribute("aria-label", "like");
 
     galleryImage.append(image, iconeContainer, likeBtn);
@@ -84,16 +89,19 @@ function createCard(media) {
   });
 }
 
-async function createStructure() {
+export async function createStructure() {
   await getDatasPixabay("../images.json");
-  createCard(medias);
   
-  const favorites = new Set();
+  const savedFavorites = getStorage("favorites");
+  const favorites = new Set(
+  JSON.parse(savedFavorites || "[]"));
+
+  medias.forEach(fav => fav.isFavorite = favorites.has(fav.id));
 
   gallery.addEventListener("click", (e) => {
     const btn = e.target.closest(".btn-icone");
     if (!btn) return;
-
+    
     const id = +btn.dataset.id;
     const media = medias.find((media) => media.id === id);
     
@@ -104,10 +112,12 @@ async function createStructure() {
     
     btn.classList.toggle("fill");
     btn.setAttribute("aria-pressed", media.isFavorite);
-  });
-}
 
-createStructure();
+    saveStorage("favorites", JSON.stringify(Array.from(favorites)));
+
+  });
+  createCard(medias);
+}
 
 const btn = document.querySelectorAll(".btn");
 btn.forEach((btn) =>
